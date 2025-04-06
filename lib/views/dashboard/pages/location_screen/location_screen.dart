@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:parshant_app/providers/balance_provider.dart';
 import 'package:parshant_app/views/dashboard/pages/wallet/deposit/amount_add.dart';
-import 'package:parshant_app/views/rough_page/firestore_service.dart';
+import 'package:parshant_app/core/services/firestore_service.dart';
 import 'package:parshant_app/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 import '../wallet/deposit/withdrawal/withdrawal_add_amount.dart';

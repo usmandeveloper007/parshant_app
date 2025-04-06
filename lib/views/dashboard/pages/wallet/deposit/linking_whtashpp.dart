@@ -3,17 +3,13 @@ import 'dart:io';
 import 'package:android_intent_plus/android_intent.dart';
 import 'package:parshant_app/core/utils/utils.dart';
 
-
-
 // WhatsApp Open Karna
 void openWhatsApp(
-
-    String message1 ,
+  String message1,
 ) async {
   String? value = await SharedPreferencesHelper.getValue();
 
-  String message =
-      "$message1 \n\nRef.ID:$value";
+  String message = "$message1 \n\nRef.ID:$value";
 
   final intent = AndroidIntent(
     action: 'android.intent.action.VIEW',

@@ -20,7 +20,6 @@ class OtpScreen extends StatefulWidget {
 class _OtpScreenState extends State<OtpScreen> {
   final pinController = TextEditingController();
 
-
   final List<FocusNode> _focusNodes = List.generate(6, (index) => FocusNode());
 
   @override
@@ -33,7 +32,7 @@ class _OtpScreenState extends State<OtpScreen> {
 
   @override
   void dispose() {
-    pinController.dispose() ;
+    pinController.dispose();
 
     super.dispose();
   }
@@ -71,8 +70,6 @@ class _OtpScreenState extends State<OtpScreen> {
       debugPrint("OTP verification failed: $e");
     }
   }
-
-
 
   @override
   Widget build(BuildContext context) {

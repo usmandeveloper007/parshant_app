@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parshant_app/providers/balance_provider.dart';
 
-
-
 import 'package:provider/provider.dart';
 
 import 'deposit/amount_add.dart';
@@ -60,9 +58,6 @@ class IstWalletPage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-
-
-
           ],
         ),
       ),
@@ -86,18 +81,18 @@ class IstWalletPage extends StatelessWidget {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child: Material(
-            color: Colors.transparent ,
+            color: Colors.transparent,
             child: InkWell(
               onTap: () {
                 if (widgetNumber == 1) {
-
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => AddCashPart1()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AddCashPart1()));
+                } else if (widgetNumber == 2) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => WithdrawalAddAmount()));
                 }
-
-                else if(widgetNumber == 2){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => WithdrawalAddAmount()));
-                }
-
               },
               borderRadius: BorderRadius.circular(10),
               child: ListTile(
@@ -114,8 +109,10 @@ class IstWalletPage extends StatelessWidget {
                 trailing: InkWell(
                   onTap: () {
                     if (widgetNumber == 1) {
-
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => AddCashPart1()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AddCashPart1()));
                     }
                   },
                   child: const Icon(
@@ -131,14 +128,3 @@ class IstWalletPage extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-

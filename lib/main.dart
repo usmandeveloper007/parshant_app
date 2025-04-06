@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:parshant_app/providers/jodi_game_provider.dart';
+import 'package:parshant_app/providers/register_provider.dart';
 import 'package:parshant_app/providers/splash_provider.dart';
 import 'package:provider/provider.dart';
 import 'core/routes/app_routes.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => SplashProvider()),
+        ChangeNotifierProvider(create: (context) => RegisterProvider()),
         ChangeNotifierProvider(create: (context) => BalanceProvider()),
         ChangeNotifierProvider(create: (context) => JodiGameChangeNotifier()),
       ],

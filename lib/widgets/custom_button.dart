@@ -5,7 +5,7 @@ class CustomButton extends StatelessWidget {
   final Size minimumSize;
   final Color backgroundColour;
   final Widget childWidget;
-  final  bool isButtonEnable ;
+  final bool isButtonEnable;
 
   const CustomButton({
     super.key,
@@ -13,7 +13,7 @@ class CustomButton extends StatelessWidget {
     required this.backgroundColour,
     required this.minimumSize,
     required this.childWidget,
-    this.isButtonEnable = true ,
+    this.isButtonEnable = true,
   });
 
   @override
@@ -28,9 +28,7 @@ class CustomButton extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: () {
-            isButtonEnable ? onPressed() : null ;
-          },
+          onTap: isButtonEnable ? onPressed : null,
           borderRadius: BorderRadius.circular(10),
           splashColor: Colors.green,
           child: Center(

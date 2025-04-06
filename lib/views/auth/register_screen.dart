@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:parshant_app/core/constants/constants.dart';
-import 'package:parshant_app/core/services/firebase_auth.dart';
-import 'package:parshant_app/core/utils/utils.dart';
+import 'package:parshant_app/providers/register_provider.dart';
 import 'package:parshant_app/views/auth/log_in_screen.dart';
 import 'package:parshant_app/widgets/widgets.dart';
+import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -13,111 +13,72 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController mobileController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
-
-  final ValueNotifier<bool> isLoading = ValueNotifier(false);
-
-  @override
-  void dispose() {
-    nameController.dispose();
-    mobileController.dispose();
-    passwordController.dispose();
-    confirmPasswordController.dispose();
-    isLoading.dispose();
-    super.dispose();
-  }
-
-  void _handleRegister() async {
-    if (isLoading.value) return;
-    FocusScope.of(context).unfocus();
-
-    bool isValid = InputValidatorRegister.isPhoneNumberTabValid(
-      context: context,
-      name: nameController.text.trim(),
-      mobileNumber: mobileController.text.trim(),
-      password: passwordController.text.trim(),
-      confirmPassword: confirmPasswordController.text.trim(),
-    );
-
-    if (isValid) {
-      isLoading.value = true;
-      String fullPhone = '${mobileController.text.trim()}@ashu.com';
-
-      await AuthService.registerUser(
-        context: context,
-        phoneNumber: fullPhone,
-        password: passwordController.text.trim(),
-        name: nameController.text.trim(),
-      );
-
-      isLoading.value = false;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue,
-      child: SafeArea(
-        child: Scaffold(
-          backgroundColor: AppColors.textBodyPart2,
-          body: SingleChildScrollView(
-            reverse: true,
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 130),
-                TabHeader.buildHeader(
-                    text1: "Register", text2: "Please enter details to register"),
-                const SizedBox(height: 20),
-                _buildFormFields(),
-                const SizedBox(height: 20),
-                _buildRegisterButton(),
-                const SizedBox(height: 20),
-                _buildLoginButton(),
-              ],
+    return Consumer<RegisterProvider>(
+      builder: (context, registerProvider ,child) {
+        return Container(
+          color: Colors.blue,
+          child: SafeArea(
+            child: Scaffold(
+              backgroundColor: AppColors.textBodyPart2,
+              body: SingleChildScrollView(
+                reverse: true,
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 130),
+                    TabHeader.buildHeader(
+                        text1: "Register", text2: "Please enter details to register"),
+                    const SizedBox(height: 20),
+                    _buildFormFields(registerProvider),
+                    const SizedBox(height: 20),
+                    _buildRegisterButton(registerProvider),
+                    const SizedBox(height: 20),
+                    _buildLoginButton(),
+                  ],
+                ),
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      }
     );
   }
 
-  Widget _buildFormFields() {
+  Widget _buildFormFields(RegisterProvider registerProvider) {
     return Column(
       children: [
         CredentialsTextField(
-            labelText: 'Name', textEditingController: nameController),
+            labelText: 'Name', textEditingController: registerProvider.nameController),
         const SizedBox(height: 10),
         CredentialsTextField(
           prefixText: true,
           labelText: 'Mobile Number',
-          textEditingController: mobileController,
+          textEditingController: registerProvider.mobileController,
           keyboardType: TextInputType.phone,
         ),
         const SizedBox(height: 10),
         CredentialsTextField(
-            labelText: 'Password', textEditingController: passwordController),
+            labelText: 'Password', textEditingController: registerProvider.passwordController),
         const SizedBox(height: 10),
         CredentialsTextField(
             labelText: 'Confirm Password',
-            textEditingController: confirmPasswordController),
+            textEditingController: registerProvider.confirmPasswordController),
       ],
     );
   }
 
-  Widget _buildRegisterButton() {
+  Widget _buildRegisterButton(RegisterProvider registerProvider) {
     return Center(
       child: ValueListenableBuilder<bool>(
-        valueListenable: isLoading,
+        valueListenable: registerProvider.isLoading,
         builder: (context, value, child) {
           return CustomButton(
-            onPressed: _handleRegister,
+            onPressed: (){
+              registerProvider.handleRegister(context);
+            },
             backgroundColour: AppColors.primaryColor,
             minimumSize: const Size(300, 50),
             childWidget: value

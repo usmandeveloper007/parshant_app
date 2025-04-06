@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:parshant_app/core/services/firebase_fetchchart.dart';
 import 'package:parshant_app/core/services/firebase_gamesData.dart';
 
-
-
 class ChartScreenIst extends StatelessWidget {
   const ChartScreenIst({super.key});
 
@@ -116,5 +114,3 @@ class ChartScreenIst extends StatelessWidget {
     );
   }
 }
-
- 
