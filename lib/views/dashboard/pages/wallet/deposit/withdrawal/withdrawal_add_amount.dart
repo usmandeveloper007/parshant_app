@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:parshant_app/views/dashboard/pages/wallet/deposit/linking_whtashpp.dart';
 import 'package:parshant_app/views/dashboard/pages/wallet/wallet_text.dart';
 import 'package:provider/provider.dart';
@@ -44,7 +45,7 @@ class WithdrawalAddAmount extends StatelessWidget {
   /// 📌 *App Bar*
   Widget _buildAppBar(BuildContext context) {
     return Container(
-      height: 60,
+      height: MediaQuery.of(context).size.height * 0.12,
       width: double.infinity,
       color: Colors.blue,
       child: Row(
@@ -62,7 +63,7 @@ class WithdrawalAddAmount extends StatelessWidget {
           const SizedBox(width: 10),
           Text(
             "Withdrawal Money",
-            style: AppTextStyles.fontSize20(color: Colors.white),
+            style: TextStyle(fontSize: 24.sp, color: Colors.white),
           ),
         ],
       ),

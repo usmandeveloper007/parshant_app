@@ -60,11 +60,11 @@ class _DashboardState extends State<Dashboard> {
   }
 
   final List<Widget> items = [
-    Icon(Icons.home, size: 30.sp, color: Colors.white),
-    Icon(Icons.receipt, size: 30.sp, color: Colors.white),
-    Icon(Icons.account_balance_wallet, size: 30.sp, color: Colors.white),
-    Icon(Icons.phone, size: 30.sp, color: Colors.white),
-    Icon(Icons.add_chart, size: 30.sp, color: Colors.white),
+    Icon(Icons.home, size: 25.sp, color: Colors.white),
+    Icon(Icons.receipt, size: 25.sp, color: Colors.white),
+    Icon(Icons.account_balance_wallet, size: 25.sp, color: Colors.white),
+    Icon(Icons.phone, size: 25.sp, color: Colors.white),
+    Icon(Icons.add_chart, size: 25.sp, color: Colors.white),
   ];
 
   @override
@@ -83,7 +83,7 @@ class _DashboardState extends State<Dashboard> {
         appBar: const CustomAppBar(text: "Parshant App"),
         body: screens[_selectedIndex],
         bottomNavigationBar: CurvedNavigationBar(
-          height: 65,
+          height: 75,
           color: Colors.blue,
           animationDuration: const Duration(milliseconds: 300),
           backgroundColor: Colors.transparent,

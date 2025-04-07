@@ -145,7 +145,17 @@ class _LogInScreenState extends State<LogInScreen> {
           valueListenable: isLoading,
           builder: (context, loading, child) {
             return CustomButton(
-              onPressed: _handleLogin,
+              onPressed: 
+              //   Navigator.pushAndRemoveUntil(
+              //     context,
+              //     MaterialPageRoute(
+              //       builder: (context) => Dashboard(navigationIndex: 0),
+              //     ),
+              //         (route) => false,
+              //   );
+              // },
+
+              _handleLogin,
               backgroundColour: AppColors.primaryColor,
               minimumSize: const Size(300, 45),
               childWidget: loading

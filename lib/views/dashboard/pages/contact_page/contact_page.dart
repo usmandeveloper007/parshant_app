@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:parshant_app/core/constants/Appfont.dart';
 
 
@@ -8,42 +9,44 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const SizedBox(height: 10,),
-          Container(
-            height: 45,
-             width: double.infinity,
-             color: Colors.grey.shade300,
-            child:  Center(child:  Text("HelpDesk" , style: AppTextStyles.fontSize20(),)),
-          ),
-          const SizedBox(height: 10,),
-          fundCard(
-              leadingIcon: Icons.call,
-              titleText: "Contact me",
-              subtitleText: "Ask any question via phone",
-              widgetNumber: 1,
-              context: context),
-          fundCard(
-              leadingIcon: Icons.message,
-              titleText: "Contact  messages",
-              subtitleText: "Ask any question via contact messages",
-              widgetNumber: 1,
-              context: context),
-          fundCard(
-              leadingIcon: Icons.telegram,
-              titleText: "Telegram",
-              subtitleText: "Ask any question via Telegram",
-              widgetNumber: 1,
-              context: context),
-          fundCard(
-              leadingIcon: Icons.email,
-              titleText: "Send email",
-              subtitleText: "Ask any question via email",
-              widgetNumber: 1,
-              context: context),
-          specialCard(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 10,),
+            Container(
+              height: 70.h,
+               width: double.infinity,
+               color: Colors.grey.shade300,
+              child:  Center(child:  Text("HelpDesk" , style: AppTextStyles.fontSize18(),)),
+            ),
+            const SizedBox(height: 10,),
+            fundCard(
+                leadingIcon: Icons.call,
+                titleText: "Contact me",
+                subtitleText: "Ask any question via phone",
+                widgetNumber: 1,
+                context: context),
+            fundCard(
+                leadingIcon: Icons.message,
+                titleText: "Contact  messages",
+                subtitleText: "Ask any question via contact messages",
+                widgetNumber: 1,
+                context: context),
+            fundCard(
+                leadingIcon: Icons.telegram,
+                titleText: "Telegram",
+                subtitleText: "Ask any question via Telegram",
+                widgetNumber: 1,
+                context: context),
+            fundCard(
+                leadingIcon: Icons.email,
+                titleText: "Send email",
+                subtitleText: "Ask any question via email",
+                widgetNumber: 1,
+                context: context),
+            specialCard(),
+          ],
+        ),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:parshant_app/core/constants/constants.dart';
 import 'package:parshant_app/providers/register_provider.dart';
 import 'package:parshant_app/views/auth/log_in_screen.dart';
@@ -80,11 +81,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               registerProvider.handleRegister(context);
             },
             backgroundColour: AppColors.primaryColor,
-            minimumSize: const Size(300, 50),
+            minimumSize: const Size(300, 70),
             childWidget: value
                 ? const CustomLoader()
                 : Text("Register",
-                    style: AppTextStyles.fontSize20(color: Colors.white)),
+                    style: TextStyle(fontSize: 10.sp,color: Colors.white)),
           );
         },
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:parshant_app/core/constants/Appfont.dart';
 import 'package:parshant_app/widgets/custom_button.dart';
 
@@ -102,10 +103,10 @@ class FeedbackPage extends StatelessWidget {
               CustomButton(
                   onPressed: () {},
                   backgroundColour: Colors.blue,
-                  minimumSize: Size(300, 45),
+                  minimumSize: const Size(300, 70),
                   childWidget: Text(
                     "Submit",
-                    style: AppTextStyles.fontSize20(color: Colors.white),
+                    style: TextStyle(fontSize:10.sp,color: Colors.white),
                   ))
             ],
           ),

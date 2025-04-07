@@ -66,7 +66,7 @@ class _LocationScreenState extends State<LocationScreen> {
     return Padding(
       padding: EdgeInsets.all(12.0.w),
       child: Container(
-        height: 150.h,
+        // height: 150.h,
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.r),
@@ -79,6 +79,7 @@ class _LocationScreenState extends State<LocationScreen> {
             SizedBox(height: 10.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Consumer<BalanceProvider>(
                   builder: (context, balanceProvider, child) {
@@ -109,6 +110,7 @@ class _LocationScreenState extends State<LocationScreen> {
             ),
             SizedBox(height: 10.h),
             _buildWalletButtons(context),
+            SizedBox(height: 20.h),
           ],
         ),
       ),

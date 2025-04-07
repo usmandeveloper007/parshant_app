@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:parshant_app/views/dashboard/pages/wallet/wallet_text.dart';
 import 'package:provider/provider.dart';
 import 'package:parshant_app/core/constants/constants.dart';
@@ -44,7 +45,7 @@ class AddCashPart1 extends StatelessWidget {
   /// 📌 *App Bar*
   Widget _buildAppBar(BuildContext context) {
     return Container(
-      height: 60,
+      height: MediaQuery.of(context).size.height * 0.12,
       width: double.infinity,
       color: Colors.blue,
       child: Row(
@@ -62,7 +63,7 @@ class AddCashPart1 extends StatelessWidget {
           const SizedBox(width: 10),
           Text(
             "Add Money",
-            style: AppTextStyles.fontSize20(color: Colors.white),
+            style: TextStyle(color: Colors.white, fontSize: 24.sp),
           ),
         ],
       ),

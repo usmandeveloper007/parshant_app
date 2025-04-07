@@ -34,16 +34,18 @@ class FillPhoneNumberScreen extends StatelessWidget {
             onPressed: () => _sendOtp(context),
             backgroundColour: Colors.blue,
             minimumSize: const Size(300, 40),
-            childWidget: ValueListenableBuilder<bool>(
-              valueListenable: _isLoading,
-              builder: (context, isLoading, child) {
-                return isLoading
-                    ? const CustomLoader()
-                    : Text(
-                        "Send OTP",
-                        style: AppTextStyles.fontSize20(color: Colors.white),
-                      );
-              },
+            childWidget: Expanded(
+              child: ValueListenableBuilder<bool>(
+                valueListenable: _isLoading,
+                builder: (context, isLoading, child) {
+                  return isLoading
+                      ? const CustomLoader()
+                      : const Text(
+                          "Send OTP",
+                          style:  TextStyle(color: Colors.white, fontSize: 18),
+                        );
+                },
+              ),
             ),
           ),
         ],

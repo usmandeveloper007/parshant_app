@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:parshant_app/views/auth/log_in_screen.dart';
 import 'package:parshant_app/views/dashboard/pages/wallet/deposit/amount_add.dart';
 import 'package:parshant_app/views/feedback_page.dart';
@@ -20,18 +21,18 @@ class CustomDrawer extends StatelessWidget {
             children: [
               Container(
                   color: Colors.blue,
-                  height: 100,
+                  height: MediaQuery.of(context).size.height * 0.2,
                   child: Center(
                       child: Text(
                     "Parshant App",
-                    style: AppTextStyles.fontSize20(color: Colors.white),
+                    style: TextStyle(fontSize: 16.sp,color: Colors.white),
                   ))),
               ListTile(
                 leading: const Icon(
                   Icons.account_balance_wallet,
                   size: 30,
                 ),
-                title: Text("Add money", style: AppTextStyles.fontSize20()),
+                title: Text("Add money", style: TextStyle(fontSize: 12.sp)),
                 onTap: () {
                   Navigator.push(
                       context,
@@ -46,7 +47,7 @@ class CustomDrawer extends StatelessWidget {
                   Icons.feed_outlined,
                   size: 30,
                 ),
-                title: Text("Feedback", style: AppTextStyles.fontSize20()),
+                title: Text("Feedback", style: TextStyle(fontSize: 12.sp)),
                 onTap: () {
                   Navigator.push(
                       context,
@@ -64,7 +65,7 @@ class CustomDrawer extends StatelessWidget {
                   Icons.logout,
                   size: 30,
                 ),
-                title: Text("Logout", style: AppTextStyles.fontSize20()),
+                title: Text("Logout", style: TextStyle(fontSize: 12.sp)),
                 onTap: () {
                   dialogBox(context);
                 },
